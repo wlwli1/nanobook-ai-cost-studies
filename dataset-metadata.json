@@ -13,11 +13,11 @@
     "nlp",
     "tabular"
   ],
-  "description": "Four small CSV tables (874 rows in total) produced by the AI cost calculators on NanoBook (https://nanobook.cc/). Each table sweeps one calculator across a fixed grid of inputs. Study date: 2026-11-05 (VRAM model data checked 2026-11-04).\n\n## Files\n- **vram-model-quant-context-2026-11-05.csv**: 100 rows. Estimated GPU memory (GGUF file size + F16 KV cache + 1.5 GiB allowance) for 5 models x 4 weight formats x 5 context lengths. 10 rows are unavailable Ollama tags. Calculated, not measured. Source: https://nanobook.cc/vram-calculator/\n- **claude-cache-break-even-2026-11-05.csv**: 720 rows. Cost of no cache vs. 5-minute vs. 1-hour Claude prompt caching for 5 pricing variants x 6 request counts x 8 request gaps. No live API or billing test. Source: https://nanobook.cc/prompt-caching-calculator/\n- **rag-average-length-comparison-2026-11-05.csv**: 45 rows. Chunk and embedding cost estimated from the mean document length vs. per-document lengths, for 3 embedding models x 5 synthetic corpora x 3 overlaps. Source: https://nanobook.cc/rag-embedding-calculator/\n- **rag-document-lengths-2026-11-05.csv**: 9 rows. The synthetic document length groups of the 5 corpora used in the RAG study. Source: https://nanobook.cc/rag-embedding-calculator/\n\nPer-study explanations: https://nanobook.cc/vram-calculator/#vram-study, https://nanobook.cc/prompt-caching-calculator/#cache-study, https://nanobook.cc/rag-embedding-calculator/#length-study\n\n## Limitations\n- Calculated, not measured: no model was loaded on a GPU.\n- Synthetic token lengths: the RAG corpora are constructed length mixes, not real documents.\n- No live API or billing test: costs use official price pages as of 2026-11-05; padding, provider-added tokens and discounts are not included. Prices can change after the study date.\n\n## Rights\nCC BY 4.0 applies to NanoBook's calculated results, CSV schemas and documentation. Model names and trademarks, upstream model metadata (from the model providers, Ollama and Hugging Face) and official prices (Anthropic, OpenAI, Voyage AI) remain with their respective owners. No model weights, provider documents or price lists are included.\n\nCitation: NanoBook (2026). NanoBook AI Cost Studies (study date 2026-11-05). https://nanobook.cc/ - CC BY 4.0.",
+  "description": "Four small CSV tables (874 rows in total) produced by the AI cost calculators on NanoBook (https://nanobook.cc/). Each table sweeps one calculator across a fixed grid of inputs. Study date: 2026-11-05 (VRAM model data checked 2026-11-04).\n\n## Files\n- **vram-model-quant-context-2026-11-05.csv**: 100 rows. Estimated GPU memory (GGUF file size + F16 KV cache + 1.5 GiB allowance) for 5 models x 4 weight formats x 5 context lengths. 10 rows are unavailable Ollama tags. Calculated, not measured. Source: https://nanobook.cc/#vram-calculator\n- **claude-cache-break-even-2026-11-05.csv**: 720 rows. Cost of no cache vs. 5-minute vs. 1-hour Claude prompt caching for 5 pricing variants x 6 request counts x 8 request gaps. No live API or billing test. Rates for these four models were rechecked unchanged on 2026-11-26; Claude Fable 5.2 was added to the live calculator on 2026-11-26 and is not in this 2026-11-05 snapshot. Source: https://nanobook.cc/#prompt-caching-calculator\n- **rag-average-length-comparison-2026-11-05.csv**: 45 rows. Chunk and embedding cost estimated from the mean document length vs. per-document lengths, for 3 embedding models x 5 synthetic corpora x 3 overlaps. Source: https://nanobook.cc/#rag-embedding-calculator\n- **rag-document-lengths-2026-11-05.csv**: 9 rows. The synthetic document length groups of the 5 corpora used in the RAG study. Source: https://nanobook.cc/#rag-embedding-calculator\n\nPer-study explanations: https://nanobook.cc/#vram-study, https://nanobook.cc/#cache-study, https://nanobook.cc/#length-study\n\n## Limitations\n- Calculated, not measured: no model was loaded on a GPU.\n- Synthetic token lengths: the RAG corpora are constructed length mixes, not real documents.\n- No live API or billing test: costs use official price pages as of 2026-11-05; padding, provider-added tokens and discounts are not included. Prices can change after the study date.\n\n## Rights\nCC BY 4.0 applies to NanoBook's calculated results, CSV schemas and documentation. Model names and trademarks, upstream model metadata (from the model providers, Ollama and Hugging Face) and official prices (Anthropic, OpenAI, Voyage AI) remain with their respective owners. No model weights, provider documents or price lists are included.\n\nCitation: NanoBook (2026). NanoBook AI Cost Studies (study date 2026-11-05). https://nanobook.cc/ - CC BY 4.0.",
   "resources": [
     {
       "path": "vram-model-quant-context-2026-11-05.csv",
-      "description": "100 rows. Estimated GPU memory (GGUF file size + F16 KV cache + 1.5 GiB allowance) for 5 models x 4 weight formats x 5 context lengths. 10 rows are unavailable Ollama tags. Calculated, not measured. Source: https://nanobook.cc/vram-calculator/",
+      "description": "100 rows. Estimated GPU memory (GGUF file size + F16 KV cache + 1.5 GiB allowance) for 5 models x 4 weight formats x 5 context lengths. 10 rows are unavailable Ollama tags. Calculated, not measured. Source: https://nanobook.cc/#vram-calculator",
       "schema": {
         "fields": [
           {
@@ -135,7 +135,7 @@
     },
     {
       "path": "claude-cache-break-even-2026-11-05.csv",
-      "description": "720 rows. Cost of no cache vs. 5-minute vs. 1-hour Claude prompt caching for 5 pricing variants x 6 request counts x 8 request gaps. No live API or billing test. Source: https://nanobook.cc/prompt-caching-calculator/",
+      "description": "720 rows. Cost of no cache vs. 5-minute vs. 1-hour Claude prompt caching for 5 pricing variants x 6 request counts x 8 request gaps. No live API or billing test. Source: https://nanobook.cc/#prompt-caching-calculator Rates for these four models were rechecked unchanged on 2026-11-26; Claude Fable 5.2 was added to the live calculator on 2026-11-26 and is not in this 2026-11-05 snapshot.",
       "schema": {
         "fields": [
           {
@@ -223,7 +223,7 @@
     },
     {
       "path": "rag-average-length-comparison-2026-11-05.csv",
-      "description": "45 rows. Chunk and embedding cost estimated from the mean document length vs. per-document lengths, for 3 embedding models x 5 synthetic corpora x 3 overlaps. Source: https://nanobook.cc/rag-embedding-calculator/",
+      "description": "45 rows. Chunk and embedding cost estimated from the mean document length vs. per-document lengths, for 3 embedding models x 5 synthetic corpora x 3 overlaps. Source: https://nanobook.cc/#rag-embedding-calculator",
       "schema": {
         "fields": [
           {
@@ -326,7 +326,7 @@
     },
     {
       "path": "rag-document-lengths-2026-11-05.csv",
-      "description": "9 rows. The synthetic document length groups of the 5 corpora used in the RAG study. Source: https://nanobook.cc/rag-embedding-calculator/",
+      "description": "9 rows. The synthetic document length groups of the 5 corpora used in the RAG study. Source: https://nanobook.cc/#rag-embedding-calculator",
       "schema": {
         "fields": [
           {

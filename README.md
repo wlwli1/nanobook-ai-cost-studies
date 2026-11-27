@@ -43,12 +43,12 @@ Four small CSV tables produced by the AI cost calculators on [NanoBook](https://
 
 | File | Rows | Calculator | What it shows |
 |---|---:|---|---|
-| `vram-model-quant-context-2026-11-05.csv` | 100 | [Local LLM VRAM calculator](https://nanobook.cc/vram-calculator/) | Estimated GPU memory for 5 models × 4 weight formats × 5 context lengths |
-| `claude-cache-break-even-2026-11-05.csv` | 720 | [Claude prompt caching calculator](https://nanobook.cc/prompt-caching-calculator/) | Cost of no cache vs. 5-minute vs. 1-hour cache across request counts and request gaps |
-| `rag-average-length-comparison-2026-11-05.csv` | 45 | [RAG chunk & embedding calculator](https://nanobook.cc/rag-embedding-calculator/) | Error from estimating chunk counts with the average document length instead of per-document lengths |
-| `rag-document-lengths-2026-11-05.csv` | 9 | [RAG chunk & embedding calculator](https://nanobook.cc/rag-embedding-calculator/) | The synthetic document length mixes used by the RAG study |
+| `vram-model-quant-context-2026-11-05.csv` | 100 | [Local LLM VRAM calculator](https://nanobook.cc/#vram-calculator) | Estimated GPU memory for 5 models × 4 weight formats × 5 context lengths |
+| `claude-cache-break-even-2026-11-05.csv` | 720 | [Claude prompt caching calculator](https://nanobook.cc/#prompt-caching-calculator) | Cost of no cache vs. 5-minute vs. 1-hour cache across request counts and request gaps |
+| `rag-average-length-comparison-2026-11-05.csv` | 45 | [RAG chunk & embedding calculator](https://nanobook.cc/#rag-embedding-calculator) | Error from estimating chunk counts with the average document length instead of per-document lengths |
+| `rag-document-lengths-2026-11-05.csv` | 9 | [RAG chunk & embedding calculator](https://nanobook.cc/#rag-embedding-calculator) | The synthetic document length mixes used by the RAG study |
 
-The same files are published on the calculator pages, where each study is explained in its own section: [VRAM study](https://nanobook.cc/vram-calculator/#vram-study), [cache study](https://nanobook.cc/prompt-caching-calculator/#cache-study), [RAG length study](https://nanobook.cc/rag-embedding-calculator/#length-study).
+The same files are published on the calculator pages, where each study is explained in its own section: [VRAM study](https://nanobook.cc/#vram-study), [cache study](https://nanobook.cc/#cache-study), [RAG length study](https://nanobook.cc/#length-study).
 
 SHA-256 of each file (identical to the copies served on nanobook.cc, checked 2026-11-27):
 
@@ -107,7 +107,7 @@ Scope: single NVIDIA GPU, full offload, dense full attention. GGUF file size is 
 
 `claude-cache-break-even-2026-11-05.csv` — 720 rows: 5 pricing variants × 6 request counts (1, 2, 3, 6, 10, 20) × 8 request gaps (1, 4.9, 5, 10, 30, 59.9, 60, 70 minutes) × 3 scenarios (`No cache`, `5m cache`, `1h cache`).
 
-Pricing variants: `claude-sonnet-5-5`, `claude-opus-5-5` and `claude-haiku-4-5-20251001` at the standard rate with a 20,000-token prefix; `claude-haiku-5-5` with a 20,000-token prefix (`up to 100000 input tokens`) and with a 100,000-token prefix (`over 100000 input tokens`). Every request also has 1,000 new input tokens and 500 output tokens.
+Pricing variants: `claude-sonnet-5-5`, `claude-opus-5-5` and `claude-haiku-4-5-20251001` at the standard rate with a 20,000-token prefix; `claude-haiku-5-5` with a 20,000-token prefix (`up to 100000 input tokens`) and with a 100,000-token prefix (`over 100000 input tokens`). Every request also has 1,000 new input tokens and 500 output tokens. Rates for these four models were rechecked unchanged on 2026-11-26; Claude Fable 5.2 was added to the live calculator on 2026-11-26 and is not in this 2026-11-05 snapshot.
 
 Model of the requests: requests are sequential and evenly spaced by `gap_minutes`, starting cold. The first request writes the fixed prefix to the cache. A later request reads the cache only if its start is strictly less than the TTL after the previous cache access; each access refreshes the TTL. Otherwise it writes again. Costs are summed in integer nano-dollars and rounded only for output.
 
@@ -209,8 +209,8 @@ Suggested citation:
 
 Per-study citations used on the calculator pages:
 
-- NanoBook (2026). Local LLM VRAM & F16 KV Cache Calculator and 100-Combination Benchmark Dataset (v2026.11). https://nanobook.cc/vram-calculator/
-- NanoBook (2026). Claude Prompt Caching Break-Even Calculator and 720-Scenario Cost Matrix Dataset (v2026.11). https://nanobook.cc/prompt-caching-calculator/
-- NanoBook (2026). RAG Chunk Overlap & Document Length Distribution Cost Calculator and Dataset (v2026.11). https://nanobook.cc/rag-embedding-calculator/
+- NanoBook (2026). Local LLM VRAM & F16 KV Cache Calculator and 100-Combination Calculated Dataset (v2026.11). https://nanobook.cc/#vram-calculator
+- NanoBook (2026). Claude Prompt Caching Break-Even Calculator and 720-Scenario Cost Matrix Dataset (v2026.11). https://nanobook.cc/#prompt-caching-calculator
+- NanoBook (2026). RAG Chunk Overlap & Document Length Distribution Cost Calculator and Dataset (v2026.11). https://nanobook.cc/#rag-embedding-calculator
 
 Contact: support@nanobook.cc
