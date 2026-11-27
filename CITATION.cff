@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it using the metadata from this file. All values are calculated, not measured."
+type: dataset
+title: "NanoBook AI Cost Studies (2026-11-05)"
+authors:
+  - name: "NanoBook"
+version: "1.0.0"
+date-released: 2026-11-27
+doi: 10.5281/zenodo.24591273
+url: "https://nanobook.cc/"
+repository-code: "https://github.com/wlwli1/nanobook-ai-cost-studies"
+license: CC-BY-4.0
