@@ -1,7 +1,7 @@
 {
   "title": "NanoBook AI Cost Studies 2026-11-05",
   "subtitle": "Calculated LLM VRAM, Claude cache and RAG embedding cost tables",
-  "id": "<YOUR_KAGGLE_USERNAME>/nanobook-ai-cost-studies",
+  "id": "winnerwin2/nanobook-ai-cost-studies",
   "licenses": [
     {
       "name": "CC-BY-4.0"

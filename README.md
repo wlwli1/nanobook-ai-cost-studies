@@ -201,7 +201,7 @@ CC BY 4.0 applies to NanoBook's calculated results, the CSV schemas and this doc
 - Upstream model metadata (layer counts, KV heads, head dimensions, GGUF file sizes, digests, manifest and config URLs) comes from the model providers and from Ollama and Hugging Face. Rights in that metadata and in the model files stay with them.
 - Official prices used as inputs belong to the publishing providers (Anthropic, OpenAI, Voyage AI).
 
-No model weights, provider documents or price lists are included; only calculated values and source URLs. See [LICENSE](LICENSE) for the full license text.
+No model weights, provider documents or price lists are included; only calculated values and source URLs. See [LICENSE](LICENSE) for the full license text and [NOTICE](NOTICE) for the scope of the license and third-party rights.
 
 Suggested citation:
 
