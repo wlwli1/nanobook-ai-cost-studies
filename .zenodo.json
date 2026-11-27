@@ -1,0 +1,46 @@
+{
+  "title": "NanoBook AI Cost Studies (2026-11-05)",
+  "upload_type": "dataset",
+  "publication_date": "2026-11-05",
+  "description": "<p>Four small CSV tables (874 data rows total, plus one header row per file) produced by the AI cost calculators on <a href=\"https://nanobook.cc/\">NanoBook</a>. Study date: 2026-11-05 (VRAM model metadata checked 2026-11-04). <strong>All values are calculated, not measured.</strong> No model was run, no API was called, and no bill was checked.</p><ul><li><code>vram-model-quant-context-2026-11-05.csv</code> (100 rows: 90 calculated, 10 unavailable exact Ollama tag) — Estimated GPU memory for 5 local LLM models (Llama 3.2 3B Instruct, Qwen3 4B, Qwen3 8B, Qwen2.5 7B Instruct, Qwen2.5-Coder 7B Instruct) across 4 weight formats (Q4_K_M, Q5_K_M, Q8_0, FP16) and 5 context lengths (2,048 to 32,768 tokens), using GGUF file size as a weight proxy, F16 KV cache for 1 sequence, and a fixed uncalibrated 1.5 GiB planning allowance.</li><li><code>claude-cache-break-even-2026-11-05.csv</code> (720 rows) — Calculated cost comparison of no prompt cache vs. 5-minute TTL cache vs. 1-hour TTL cache across Claude models, request counts, and request gaps using official published token pricing as inputs.</li><li><code>rag-average-length-comparison-2026-11-05.csv</code> (45 rows) — Calculated error from estimating RAG chunk counts using an average document length instead of per-document lengths across synthetic document mixes and chunk/overlap settings.</li><li><code>rag-document-lengths-2026-11-05.csv</code> (9 rows) — The synthetic document length mixes used as inputs by the RAG length study.</li></ul><p><strong>Scope of license and third-party rights (NOTICE):</strong> CC BY 4.0 applies only to NanoBook's own calculated results, the CSV schemas (column names and structure), and the accompanying documentation (README.md, NOTICE, dataset-metadata.json). It does not grant any right in material owned by others: model names and trademarks (for example Claude, Llama, Qwen, OpenAI text-embedding models, Voyage) belong to their respective owners and their use is descriptive; upstream model metadata (layer counts, KV head counts, head dimensions, GGUF file sizes, SHA-256 digests, manifest and config URLs) is factual information published by the respective model providers and distribution registries (Ollama, Hugging Face) and rights in the original metadata and model files remain with those parties; official prices used as calculation inputs (Anthropic, OpenAI, Voyage AI) remain with those providers and can change after the study date. No model weights, provider documents, or provider price lists are redistributed in this dataset; only calculated values and source URLs. All values are calculated, not measured, and are provided \"as is\" without warranty.</p>",
+  "creators": [
+    {
+      "name": "NanoBook"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "language": "eng",
+  "version": "1.0.0",
+  "keywords": [
+    "LLM",
+    "local-llm",
+    "VRAM",
+    "GGUF",
+    "KV-cache",
+    "prompt-caching",
+    "RAG",
+    "embeddings",
+    "AI-cost-estimation",
+    "tabular",
+    "synthetic"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://nanobook.cc/",
+      "relation": "isDerivedFrom",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://huggingface.co/datasets/winnerwin/nanobook-ai-cost-studies",
+      "relation": "isIdenticalTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://www.kaggle.com/datasets/winnerwin2/nanobook-ai-cost-studies",
+      "relation": "isIdenticalTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Calculated analytical grids, not hardware benchmarks or live billing measurements. See NOTICE and README.md for SHA-256 checksums, exact formulas, and third-party rights boundaries."
+}
