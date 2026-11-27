@@ -1,0 +1,361 @@
+{
+  "title": "NanoBook AI Cost Studies 2026-11-05",
+  "subtitle": "Calculated LLM VRAM, Claude cache and RAG embedding cost tables",
+  "id": "<YOUR_KAGGLE_USERNAME>/nanobook-ai-cost-studies",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0"
+    }
+  ],
+  "keywords": [
+    "artificial intelligence",
+    "computer science",
+    "nlp",
+    "tabular"
+  ],
+  "description": "Four small CSV tables (874 rows in total) produced by the AI cost calculators on NanoBook (https://nanobook.cc/). Each table sweeps one calculator across a fixed grid of inputs. Study date: 2026-11-05 (VRAM model data checked 2026-11-04).\n\n## Files\n- **vram-model-quant-context-2026-11-05.csv**: 100 rows. Estimated GPU memory (GGUF file size + F16 KV cache + 1.5 GiB allowance) for 5 models x 4 weight formats x 5 context lengths. 10 rows are unavailable Ollama tags. Calculated, not measured. Source: https://nanobook.cc/vram-calculator/\n- **claude-cache-break-even-2026-11-05.csv**: 720 rows. Cost of no cache vs. 5-minute vs. 1-hour Claude prompt caching for 5 pricing variants x 6 request counts x 8 request gaps. No live API or billing test. Source: https://nanobook.cc/prompt-caching-calculator/\n- **rag-average-length-comparison-2026-11-05.csv**: 45 rows. Chunk and embedding cost estimated from the mean document length vs. per-document lengths, for 3 embedding models x 5 synthetic corpora x 3 overlaps. Source: https://nanobook.cc/rag-embedding-calculator/\n- **rag-document-lengths-2026-11-05.csv**: 9 rows. The synthetic document length groups of the 5 corpora used in the RAG study. Source: https://nanobook.cc/rag-embedding-calculator/\n\nPer-study explanations: https://nanobook.cc/vram-calculator/#vram-study, https://nanobook.cc/prompt-caching-calculator/#cache-study, https://nanobook.cc/rag-embedding-calculator/#length-study\n\n## Limitations\n- Calculated, not measured: no model was loaded on a GPU.\n- Synthetic token lengths: the RAG corpora are constructed length mixes, not real documents.\n- No live API or billing test: costs use official price pages as of 2026-11-05; padding, provider-added tokens and discounts are not included. Prices can change after the study date.\n\n## Rights\nCC BY 4.0 applies to NanoBook's calculated results, CSV schemas and documentation. Model names and trademarks, upstream model metadata (from the model providers, Ollama and Hugging Face) and official prices (Anthropic, OpenAI, Voyage AI) remain with their respective owners. No model weights, provider documents or price lists are included.\n\nCitation: NanoBook (2026). NanoBook AI Cost Studies (study date 2026-11-05). https://nanobook.cc/ - CC BY 4.0.",
+  "resources": [
+    {
+      "path": "vram-model-quant-context-2026-11-05.csv",
+      "description": "100 rows. Estimated GPU memory (GGUF file size + F16 KV cache + 1.5 GiB allowance) for 5 models x 4 weight formats x 5 context lengths. 10 rows are unavailable Ollama tags. Calculated, not measured. Source: https://nanobook.cc/vram-calculator/",
+      "schema": {
+        "fields": [
+          {
+            "name": "analysis_date",
+            "description": "Date the study was calculated (2026-11-05)",
+            "type": "datetime"
+          },
+          {
+            "name": "model_data_date",
+            "description": "Date the model metadata was checked (2026-11-04)",
+            "type": "datetime"
+          },
+          {
+            "name": "model_id",
+            "description": "NanoBook model key",
+            "type": "string"
+          },
+          {
+            "name": "model",
+            "description": "Model display name",
+            "type": "string"
+          },
+          {
+            "name": "quant",
+            "description": "Weight format of the Ollama tag (Q4_K_M, Q5_K_M, Q8_0, FP16)",
+            "type": "string"
+          },
+          {
+            "name": "context_tokens",
+            "description": "Context length used for the KV cache estimate",
+            "type": "integer"
+          },
+          {
+            "name": "status",
+            "description": "calculated, not measured, or unavailable exact Ollama tag when no matching tag was found",
+            "type": "string"
+          },
+          {
+            "name": "gguf_weight_proxy_bytes",
+            "description": "Size of the GGUF model file in bytes, used as a proxy for weight memory",
+            "type": "integer"
+          },
+          {
+            "name": "f16_kv_bytes",
+            "description": "KV cache size at F16 (2 bytes per value) for one sequence",
+            "type": "integer"
+          },
+          {
+            "name": "planning_allowance_bytes",
+            "description": "Fixed 1.5 GiB runtime allowance; uncalibrated, not a measured overhead",
+            "type": "integer"
+          },
+          {
+            "name": "total_estimate_bytes",
+            "description": "Sum of the three values above",
+            "type": "integer"
+          },
+          {
+            "name": "total_estimate_gib",
+            "description": "Total in GiB (1 GiB = 1,073,741,824 bytes), 9 decimals",
+            "type": "decimal"
+          },
+          {
+            "name": "comparison_tier_gib",
+            "description": "Smallest listed GPU memory size that fits the total",
+            "type": "integer"
+          },
+          {
+            "name": "layers",
+            "description": "Number of transformer layers",
+            "type": "integer"
+          },
+          {
+            "name": "kv_heads",
+            "description": "Number of key/value attention heads",
+            "type": "integer"
+          },
+          {
+            "name": "head_dimension",
+            "description": "Dimension per attention head",
+            "type": "integer"
+          },
+          {
+            "name": "kv_type",
+            "description": "KV cache precision assumed (F16)",
+            "type": "string"
+          },
+          {
+            "name": "sequences",
+            "description": "Parallel sequences assumed (1)",
+            "type": "integer"
+          },
+          {
+            "name": "gguf_digest",
+            "description": "SHA-256 digest of the GGUF file as listed in the Ollama manifest",
+            "type": "string"
+          },
+          {
+            "name": "artifact_manifest",
+            "description": "Ollama registry manifest URL for the tag",
+            "type": "url"
+          },
+          {
+            "name": "structure_source",
+            "description": "Where the layer/head values were read: the official Qwen config.json on Hugging Face, or for Llama 3.2 the GGUF metadata shown by Ollama",
+            "type": "url"
+          },
+          {
+            "name": "scope",
+            "description": "Assumptions that apply to the row",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "claude-cache-break-even-2026-11-05.csv",
+      "description": "720 rows. Cost of no cache vs. 5-minute vs. 1-hour Claude prompt caching for 5 pricing variants x 6 request counts x 8 request gaps. No live API or billing test. Source: https://nanobook.cc/prompt-caching-calculator/",
+      "schema": {
+        "fields": [
+          {
+            "name": "study_date",
+            "description": "Date the study was calculated (2026-11-05)",
+            "type": "datetime"
+          },
+          {
+            "name": "rate_version",
+            "description": "Date of the price snapshot used (2026-11-05)",
+            "type": "datetime"
+          },
+          {
+            "name": "model",
+            "description": "Claude model ID",
+            "type": "string"
+          },
+          {
+            "name": "price_tier",
+            "description": "standard, or the long-prompt price tier (up to 100000 input tokens / over 100000 input tokens)",
+            "type": "string"
+          },
+          {
+            "name": "prefix_tokens",
+            "description": "Fixed prompt prefix that can be cached",
+            "type": "integer"
+          },
+          {
+            "name": "new_input_tokens",
+            "description": "Uncached input tokens per request",
+            "type": "integer"
+          },
+          {
+            "name": "output_tokens",
+            "description": "Output tokens per request",
+            "type": "integer"
+          },
+          {
+            "name": "requests",
+            "description": "Number of requests in the sequence",
+            "type": "integer"
+          },
+          {
+            "name": "gap_minutes",
+            "description": "Minutes between request starts",
+            "type": "decimal"
+          },
+          {
+            "name": "scenario",
+            "description": "No cache, 5m cache or 1h cache",
+            "type": "string"
+          },
+          {
+            "name": "total_usd",
+            "description": "Total cost of the sequence in USD (9 decimals), input + cache + output",
+            "type": "decimal"
+          },
+          {
+            "name": "cache_writes",
+            "description": "Requests that wrote the prefix to the cache",
+            "type": "integer"
+          },
+          {
+            "name": "cache_reads",
+            "description": "Requests that read the prefix from the cache",
+            "type": "integer"
+          },
+          {
+            "name": "lowest_cost",
+            "description": "true if this scenario is the cheapest (or tied) for that model, tier, request count and gap",
+            "type": "boolean"
+          },
+          {
+            "name": "assumption",
+            "description": "Assumptions that apply to the row",
+            "type": "string"
+          },
+          {
+            "name": "pricing_source",
+            "description": "Official price page used as input",
+            "type": "url"
+          }
+        ]
+      }
+    },
+    {
+      "path": "rag-average-length-comparison-2026-11-05.csv",
+      "description": "45 rows. Chunk and embedding cost estimated from the mean document length vs. per-document lengths, for 3 embedding models x 5 synthetic corpora x 3 overlaps. Source: https://nanobook.cc/rag-embedding-calculator/",
+      "schema": {
+        "fields": [
+          {
+            "name": "study_date",
+            "description": "Date the study was calculated (2026-11-05)",
+            "type": "datetime"
+          },
+          {
+            "name": "rate_version",
+            "description": "Date of the price snapshot used (2026-11-05)",
+            "type": "datetime"
+          },
+          {
+            "name": "case_id",
+            "description": "Corpus ID; lengths are in rag-document-lengths-2026-11-05.csv",
+            "type": "string"
+          },
+          {
+            "name": "model",
+            "description": "Embedding model ID",
+            "type": "string"
+          },
+          {
+            "name": "documents",
+            "description": "Documents in the corpus",
+            "type": "integer"
+          },
+          {
+            "name": "original_tokens",
+            "description": "Sum of document lengths",
+            "type": "integer"
+          },
+          {
+            "name": "exact_mean_tokens",
+            "description": "Mean document length (an exact integer in every case)",
+            "type": "integer"
+          },
+          {
+            "name": "chunk_tokens",
+            "description": "Chunk window size",
+            "type": "integer"
+          },
+          {
+            "name": "overlap_tokens",
+            "description": "Overlap between consecutive chunks",
+            "type": "integer"
+          },
+          {
+            "name": "average_chunks",
+            "description": "Chunks estimated from the mean length × documents",
+            "type": "integer"
+          },
+          {
+            "name": "per_document_chunks",
+            "description": "Chunks counted per document and summed",
+            "type": "integer"
+          },
+          {
+            "name": "average_processed_tokens",
+            "description": "Tokens embedded, estimated from the mean length",
+            "type": "integer"
+          },
+          {
+            "name": "per_document_processed_tokens",
+            "description": "Tokens embedded, counted per document",
+            "type": "integer"
+          },
+          {
+            "name": "average_cost_usd",
+            "description": "Initial embedding cost from the mean-length estimate (12 decimals)",
+            "type": "decimal"
+          },
+          {
+            "name": "per_document_cost_usd",
+            "description": "Initial embedding cost from per-document counting (12 decimals)",
+            "type": "decimal"
+          },
+          {
+            "name": "signed_token_difference",
+            "description": "average_processed_tokens − per_document_processed_tokens",
+            "type": "integer"
+          },
+          {
+            "name": "signed_error_percent_vs_per_document",
+            "description": "The difference as a percentage of per-document tokens (negative = the mean underestimates)",
+            "type": "decimal"
+          },
+          {
+            "name": "assumption",
+            "description": "Assumptions that apply to the row",
+            "type": "string"
+          },
+          {
+            "name": "pricing_source",
+            "description": "Official price page used as input",
+            "type": "url"
+          }
+        ]
+      }
+    },
+    {
+      "path": "rag-document-lengths-2026-11-05.csv",
+      "description": "9 rows. The synthetic document length groups of the 5 corpora used in the RAG study. Source: https://nanobook.cc/rag-embedding-calculator/",
+      "schema": {
+        "fields": [
+          {
+            "name": "case_id",
+            "description": "Corpus ID",
+            "type": "string"
+          },
+          {
+            "name": "case_label",
+            "description": "Short description of the corpus",
+            "type": "string"
+          },
+          {
+            "name": "document_count",
+            "description": "Documents in this length group",
+            "type": "integer"
+          },
+          {
+            "name": "tokens_per_document",
+            "description": "Token length of each document in the group",
+            "type": "integer"
+          },
+          {
+            "name": "data_type",
+            "description": "Always synthetic token lengths",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
